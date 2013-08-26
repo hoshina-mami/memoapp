@@ -1,0 +1,367 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* リセット
+------------------------------------------------------------------ */
+body, h1, h2, h3, h4, h5, h6, ul ,ol, dl, li, dt, dd, p{
+  margin:0;
+  padding:0;
+}
+h1,h2,h3,h4,h5,h6,i,address,em,strong,b{
+  font-size:100%;
+  font-weight:normal;
+  font-style:normal;
+}
+body{
+  line-height:1.0;
+  -webkit-text-size-adjust: none;
+}
+article,aside,canvas,details,figcaption,figure,footer,
+header,hgroup,menu,nav,section,summary{
+	display:block;
+}
+img{
+  border:0;
+}
+ul, ol{
+  list-style:none;
+}
+table{
+  border-spacing:0;
+  empty-cells:show;
+}
+a{
+	text-decoration:none;
+}
+
+
+
+/* レイアウト
+------------------------------------------------------------------ */
+body {
+   -webkit-text-size-adjust: none;
+   font-size: 24px;
+   font-family: Verdana, Geneva, sans-serif;
+}
+
+#memo_wrapper {
+	width: 640px;
+	height: 980px;
+	position: relative;
+	color: #222;
+	font-size: 100%;
+}
+
+
+/* ホーム画面
+------------------------------------------------------------------ */
+#memo_home {
+	height: 980px;
+}
+
+/* ヘッダー */
+#memo_home header {
+	width: 100%;
+	height: 100px;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1.00, #faa), color-stop(0.00, #fccad1));
+	border-bottom: 2px solid #ea9e9e;
+	padding-top: 20px;
+}
+
+
+/* メモ一覧 */
+#memo_main {
+	height: 860px;
+	margin: 0;
+	padding: 25px 0 10px;
+	background: #feedeb;
+	overflow: scroll;
+	clear: both;
+}
+
+#memo_list {
+	padding-bottom: 0px;
+}
+
+#memo_list li {
+	margin: 0 20px 25px;
+	padding: 15px;
+	min-height: 70px;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1.00, #fff), color-stop(0.00, #f9fafb));
+	border-top: 1px solid white;
+	border-radius: 12px;
+	position: relative;
+	-webkit-box-shadow: 1px 6px 12px -9px #999;
+}
+
+#memo_list li .created_date {
+	color: #666;
+}
+
+#memo_list li .title {
+	width: 480px;
+	color: #353535;
+	font-size: 120%;
+	font-weight: bold;
+	margin: 15px 0 10px;
+}
+
+#memo_list li .content {
+	display: none;
+}
+
+#memo_list li .text {
+	margin: 15px 0;
+	padding: 15px 0;
+	color: #353535;
+	font-size: 110%;
+	line-height: 1.6em;
+	border-top: dotted 3px #eee;
+	border-bottom: dotted 3px #eee;
+}
+
+#memo_list li .content_buttons {
+	text-align: center;
+}
+
+/* 一時保存中 */
+#memo_list li#temporarySaved p.title::before {
+	content: "！";
+	color: #C00;
+}
+
+
+
+/* テキストアラート
+------------------------------------------------------------------ */
+#memo_alert {
+	width: 400px;
+	font-size: 120%;
+	text-align: center;
+	color: #fff;
+	opacity: 0.8;
+	position: absolute;
+	top: 600px;
+	left: 18%;
+	padding: 20px 10px;
+	border-radius: 12px;
+	z-index: 100;
+}
+
+.message { background-color: #000; border: 3px solid #000; }
+
+.caution { background-color: #ef2e2e;  border: 3px solid #C00; }
+
+
+
+/* 編集画面
+------------------------------------------------------------------ */
+#mask {
+	background-color: #000;
+	opacity: 0.6;
+	width: 640px;
+	height: 1020px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#memo_edit {
+	width: 640px;
+	position: absolute;
+	top: 30px;
+	left: 0;
+}
+
+#edit_box {
+	width: 540px;
+	margin: 0 auto;
+	background-color: white;
+	padding: 40px 20px;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	-webkit-box-shadow: 0px -1px 12px #222;
+}
+
+/* フォーム部品 */
+#edit_box input {
+	width: 90%;
+	height: 1.5em;
+	font-size: 120%;
+	margin-bottom: 30px;
+	border: 1px solid #ccc;
+}
+
+#edit_box textarea {
+	width: 97%;
+	height: 400px;
+	font-size: 120%;
+	border: 1px solid #ccc;
+}
+
+#edit_buttons {
+	width: 540px;
+	margin: 0 auto;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #fccad1), color-stop(1.00, #faa));
+	padding: 20px;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+	-webkit-box-shadow: 0px 4px 7px #222;
+	text-align: center;
+}
+
+
+/* 削除確認画面
+------------------------------------------------------------------ */
+#memo_confirm {
+	width: 640px;
+	position: absolute;
+	top: 100px;
+	left: 0;
+}
+
+#confirm_box {
+	width: 540px;
+	margin: 0 auto;
+	background-color: white;
+	padding: 40px 20px;
+	border-radius: 12px;
+	-webkit-box-shadow: 0px -1px 12px #222;
+	text-align: center;
+}
+
+#confirm_buttons {
+	width: 540px;
+	margin: 40px auto 0;
+}
+
+
+/* ボタンたち
+------------------------------------------------------------------ */
+
+/* 新規登録ボタン */
+#btn_new {
+	display: inline-block;
+	width: 270px;
+	height: 80px;
+	color: white;
+	font-size: 120%;
+	font-weight: bold;
+	text-shadow: -1px -1px 4px #d57c7c;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.60, #ed9b9b), color-stop(0.00, #fccad1));
+	border:  1px solid #f0b2b2;
+	border-top:  1px solid #fff;
+	border-bottom:  1px solid #ea9e9e;
+	border-radius: 8px;
+	float: right;
+	margin-right: 20px;
+}
+
+/* リロードボタン */
+#btn_reload {
+	display: inline-block;
+	width: 160px;
+	height: 80px;
+	color: white;
+	font-size: 100%;
+	font-weight: bold;
+	text-shadow: -1px -1px 4px #d57c7c;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.60, #ed9b9b), color-stop(0.00, #fccad1));
+	border:  1px solid #f0b2b2;
+	border-top:  1px solid #fff;
+	border-bottom:  1px solid #ea9e9e;
+	border-radius: 8px;
+	float: left;
+	margin-left: 20px;
+}
+
+/* キャンセルボタン */
+.btn_delete,
+#btn_editCancel,
+#btn_deletCancel {
+	display: inline-block;
+	width: 200px;
+	height: 55px;
+	color: #bbb;
+	font-size: 110%;
+	font-weight: bold;
+	text-shadow: -1px -1px 1px #555, 1px 1px 1px #fff;
+	margin: 0 auto;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.60, #ddd), color-stop(0.00, #eee));
+	border:  1px solid #ccc;
+	border-bottom:  2px solid #aaa;
+	border-radius: 8px;
+	margin-right: 30px;
+}
+
+/* 実行ボタン */
+.btn_edit,
+#btn_post,
+#btn_doDelet {
+	display: inline-block;
+	width: 200px;
+	height: 55px;
+	color: #bbb;
+	font-size: 110%;
+	font-weight: bold;
+	text-shadow: -1px -1px 1px #555, 1px 1px 1px #fff;
+	margin: 0 auto;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.60, #ddd), color-stop(0.00, #eee));
+	border:  1px solid #ccc;
+	border-bottom:  2px solid #aaa;
+	border-radius: 8px;
+}
+
+
+/* ♡ */
+#memo_list li .btn_like {
+	width: 60px;
+	height: 50px;
+	position: absolute;
+	top: 35px;
+	right: 15px;
+}
+.btn_like:before, .btn_like:after {
+	position: absolute;
+    content: "";
+	left: 30px;
+	top: 0;
+	width: 30px;
+	height: 48px;
+	background: #ddd;
+	border-radius: 50px 50px 0 0;
+	-webkit-transform: rotate(-45deg);
+	-webkit-transform-origin: 0 100%;
+}
+.btn_like:after {
+	left: 0;
+	-webkit-transform: rotate(45deg);
+	-webkit-transform-origin: 100% 100%;
+}
+
+
+/* ♥ */
+#memo_list li .btn_like_active {
+	width: 60px;
+	height: 50px;
+	position: absolute;
+	top: 35px;
+	right: 15px;
+}
+.btn_like_active:before, .btn_like_active:after {
+	position: absolute;
+    content: "";
+	left: 30px;
+	top: 0;
+	width: 30px;
+	height: 48px;
+	background: #faa;
+	border-radius: 50px 50px 0 0;
+	-webkit-transform: rotate(-45deg);
+	-webkit-transform-origin: 0 100%;
+}
+.btn_like_active:after {
+	left: 0;
+	-webkit-transform: rotate(45deg);
+	-webkit-transform-origin: 100% 100%;
+}
